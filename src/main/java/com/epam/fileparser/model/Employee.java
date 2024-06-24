@@ -34,4 +34,9 @@ public class Employee extends Person {
   public int hashCode() {
     return Objects.hash(super.hashCode(), managerId);
   }
+
+  @Override
+  public String toString() {
+    return super.toString() + " Manager Id:" + managerId;
+  }
 }

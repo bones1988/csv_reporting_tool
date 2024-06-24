@@ -20,18 +20,7 @@ public class ConsoleStatisticWriter implements StatisticWriter {
     System.out.println("Managers earn less than they should:");
 
     lowSalaryStatisticList.forEach(
-        s ->
-            System.out.println(
-                "- Id:"
-                    + s.getPerson().getId()
-                    + " First Name:"
-                    + s.getPerson().getFirstName()
-                    + " Last name:"
-                    + s.getPerson().getLastName()
-                    + " Salary:"
-                    + s.getPerson().getSalary()
-                    + " By salary:"
-                    + s.getBySalary()));
+        s -> System.out.println(s.getPerson() + " By salary:" + s.getBySalary()));
     System.out.println();
   }
 
@@ -39,37 +28,14 @@ public class ConsoleStatisticWriter implements StatisticWriter {
     System.out.println("Managers earn more than they should:");
 
     highSalaryStatisticList.forEach(
-        s ->
-            System.out.println(
-                "- Id:"
-                    + s.getPerson().getId()
-                    + " First Name:"
-                    + s.getPerson().getFirstName()
-                    + " Last name:"
-                    + s.getPerson().getLastName()
-                    + " Salary:"
-                    + s.getPerson().getSalary()
-                    + " By salary:"
-                    + s.getBySalary()));
+        s -> System.out.println(s.getPerson() + " By salary:" + s.getBySalary()));
     System.out.println();
   }
 
   private void writeWrongManagersStatistic(List<ManagerStatisticHolder> wrongManagersList) {
     System.out.println(" employees have a reporting line which is too long:");
 
-    wrongManagersList.forEach(
-        s ->
-            System.out.println(
-                "- Id:"
-                    + s.getPerson().getId()
-                    + " First Name:"
-                    + s.getPerson().getFirstName()
-                    + " Last name:"
-                    + s.getPerson().getLastName()
-                    + " Salary:"
-                    + s.getPerson().getSalary()
-                    + " By:"
-                    + s.getByNumber()));
+    wrongManagersList.forEach(s -> System.out.println(s.getPerson() + " By:" + s.getByNumber()));
     System.out.println();
   }
 }
