@@ -1,11 +1,11 @@
 package com.epam.fileparser.repository;
 
 import com.epam.fileparser.model.Person;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+/** In memory implementation of repository with storing all employees in Map */
 public class PersonRepositoryInMemory implements PersonRepository {
   private static final Map<Long, Person> PERSON_STORAGE = new HashMap<>();
   private static final PersonRepositoryInMemory EMPLOYEE_REPOSITORY_IN_MEMORY_INSTANCE =
@@ -29,7 +29,7 @@ public class PersonRepositoryInMemory implements PersonRepository {
   }
 
   @Override
-  public Optional<Person> getById(Long id) {
+  public Optional<Person> findById(Long id) {
     return Optional.ofNullable(PERSON_STORAGE.get(id));
   }
 

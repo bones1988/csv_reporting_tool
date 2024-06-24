@@ -5,6 +5,11 @@ import com.epam.fileparser.model.Employee;
 import com.epam.fileparser.model.Person;
 import java.util.*;
 
+/**
+ * PersonManagerChainCalculatorImpl is a concrete implementation of the PersonManagerChainCalculator
+ * interface. It provides the functionality to calculate the length of the manager chain for a
+ * specific person within a map of persons.
+ */
 public class PersonManagerChainCalculatorImpl implements PersonManagerChainCalculator {
 
   @Override

@@ -5,6 +5,10 @@ import com.epam.fileparser.statisticutils.model.ManagerStatisticHolder;
 import com.epam.fileparser.statisticutils.model.SalaryStatisticHolder;
 import java.util.List;
 
+/**
+ * ConsoleStatisticWriter is a class that implements the output functionality defined in the
+ * StatisticWriter interface. It writes the statistic to console.
+ */
 public class ConsoleStatisticWriter implements StatisticWriter {
   @Override
   public void writeStatistic(StatisticHolder statisticHolder) {

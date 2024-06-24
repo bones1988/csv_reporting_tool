@@ -6,12 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * StatisticHolderImpl provides a default implementation of the StatisticHolder interface methods.
+ * It is designed to store statistical information about persons with long managers chain and with
+ * low and high salary.
+ */
 public class StatisticHolderImpl implements StatisticHolder {
   private final List<ManagerStatisticHolder> wrongManagersChainList = new ArrayList<>();
   private final List<SalaryStatisticHolder> lowSalaryList = new ArrayList<>();
   private final List<SalaryStatisticHolder> highSalaryList = new ArrayList<>();
 
-  public void addWrongManager(ManagerStatisticHolder managerStatisticHolder) {
+  public void addWrongManagerChainPerson(ManagerStatisticHolder managerStatisticHolder) {
     wrongManagersChainList.add(managerStatisticHolder);
   }
 

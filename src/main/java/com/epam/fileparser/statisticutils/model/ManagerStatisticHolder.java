@@ -2,6 +2,7 @@ package com.epam.fileparser.statisticutils.model;
 
 import com.epam.fileparser.model.Person;
 
+/** Class to store statistic about manager chain */
 public class ManagerStatisticHolder {
   private Person person;
   private int byNumber;

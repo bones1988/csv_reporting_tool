@@ -15,10 +15,21 @@ import com.epam.fileparser.statisticutils.StatisticHolderImpl;
 import java.math.RoundingMode;
 import java.util.Map;
 
+/**
+ * ConsoleRunner is the entry point of this program. This class includes a main method, which
+ * creates necessary objects, perform operations and starts the program.
+ */
 public class ConsoleRunner {
   public static final int DECIMAL_SCALE = 2;
   public static final RoundingMode ROUNDING_MODE = RoundingMode.HALF_UP;
 
+  /**
+   * The application starts running from the main() method. This method creates necessary objects,
+   * perform operations and manages the flow of the program. path to file should be provided as
+   * first argument
+   *
+   * @param args an array of command-line arguments for the application
+   */
   public static void main(String[] args) {
     if (args.length == 0) {
       System.out.println("Please provide path to file you want to parse");

@@ -1,39 +1,39 @@
 package com.epam.fileparser.salaryutils;
 
+import static com.epam.fileparser.runner.ConsoleRunner.DECIMAL_SCALE;
+import static com.epam.fileparser.runner.ConsoleRunner.ROUNDING_MODE;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import com.epam.fileparser.model.CEO;
 import com.epam.fileparser.model.Employee;
 import com.epam.fileparser.model.Person;
-import org.junit.jupiter.api.Test;
-
 import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-
-import static com.epam.fileparser.runner.ConsoleRunner.DECIMAL_SCALE;
-import static com.epam.fileparser.runner.ConsoleRunner.ROUNDING_MODE;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class SalaryStatisticCalculatorImplTest {
   private final SalaryStatisticCalculator salaryStatisticCalculator =
       new SalaryStatisticCalculatorImpl();
 
   @Test
-  public void calculateAverageSalaryShouldReturnZeroIfPersonMapIsEmpty(){
-    //given
+  public void calculateAverageDependentsSalaryShouldReturnZeroIfPersonMapIsEmpty() {
+    // given
     Person employeeOne = new Employee(1, "First", "Last", new BigDecimal(1), 1L);
     Map<Long, Person> emptyMap = Collections.EMPTY_MAP;
 
-    //when
-    BigDecimal actual = salaryStatisticCalculator.calculateAverageSalary(emptyMap, employeeOne);
+    // when
+    BigDecimal actual =
+        salaryStatisticCalculator.calculateAverageDependentsSalary(emptyMap, employeeOne);
 
-    //then
+    // then
     assertEquals(BigDecimal.ZERO.setScale(DECIMAL_SCALE, ROUNDING_MODE), actual);
   }
 
   @Test
-  public void calculateAverageSalaryShouldReturnOneHundredFifty(){
-    //given
+  public void calculateAverageDependentsSalaryShouldReturnOneHundredFifty() {
+    // given
     Person ceo = new CEO(1, "First", "Last", new BigDecimal(1));
     Person employeeTwo = new Employee(2, "First", "Last", new BigDecimal(100), 1L);
     Person employeeThree = new Employee(3, "First", "Last", new BigDecimal(200), 1L);
@@ -43,62 +43,60 @@ public class SalaryStatisticCalculatorImplTest {
     personMap.put(employeeThree.getId(), employeeThree);
     personMap.put(employeeFour.getId(), employeeFour);
 
-
-    //when
-    BigDecimal actual = salaryStatisticCalculator.calculateAverageSalary(personMap, ceo);
+    // when
+    BigDecimal actual = salaryStatisticCalculator.calculateAverageDependentsSalary(personMap, ceo);
 
     // then
     assertEquals(new BigDecimal(150).setScale(DECIMAL_SCALE, ROUNDING_MODE), actual);
   }
 
-
   @Test
-  public void calculateMaxSalaryShouldReturnZeroIfSalaryZero(){
-    //given
+  public void calculateMaxSalaryShouldReturnZeroIfSalaryZero() {
+    // given
     BigDecimal zeroSalary = BigDecimal.ZERO.setScale(DECIMAL_SCALE, ROUNDING_MODE);
 
-    //when
+    // when
     BigDecimal actual = salaryStatisticCalculator.calculateMaxSalary(zeroSalary);
 
-    //then
+    // then
     assertEquals(zeroSalary, actual);
   }
 
   @Test
-  public void calculateMaxSalaryShouldReturnFiftyPercentMore(){
-    //given
+  public void calculateMaxSalaryShouldReturnFiftyPercentMore() {
+    // given
     BigDecimal salary = new BigDecimal(100).setScale(DECIMAL_SCALE, ROUNDING_MODE);
     BigDecimal expected = new BigDecimal(150).setScale(DECIMAL_SCALE, ROUNDING_MODE);
 
-    //when
+    // when
     BigDecimal actual = salaryStatisticCalculator.calculateMaxSalary(salary);
 
-    //then
+    // then
     assertEquals(expected, actual);
   }
 
   @Test
-  public void calculateMinSalaryShouldReturnZeroIfSalaryZero(){
-    //given
+  public void calculateMinSalaryShouldReturnZeroIfSalaryZero() {
+    // given
     BigDecimal zeroSalary = BigDecimal.ZERO.setScale(DECIMAL_SCALE, ROUNDING_MODE);
 
-    //when
+    // when
     BigDecimal actual = salaryStatisticCalculator.calculateMinSalary(zeroSalary);
 
-    //then
+    // then
     assertEquals(zeroSalary, actual);
   }
 
   @Test
-  public void calculateMinSalaryShouldReturnTwentyPercentMore(){
-    //given
+  public void calculateMinSalaryShouldReturnTwentyPercentMore() {
+    // given
     BigDecimal salary = new BigDecimal(100).setScale(DECIMAL_SCALE, ROUNDING_MODE);
     BigDecimal expected = new BigDecimal(120).setScale(DECIMAL_SCALE, ROUNDING_MODE);
 
-    //when
+    // when
     BigDecimal actual = salaryStatisticCalculator.calculateMinSalary(salary);
 
-    //then
+    // then
     assertEquals(expected, actual);
   }
 }

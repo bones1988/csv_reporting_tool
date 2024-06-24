@@ -8,6 +8,11 @@ import com.epam.fileparser.model.Employee;
 import com.epam.fileparser.model.Person;
 import java.math.BigDecimal;
 
+/**
+ * PersonMapperCSV provides a concrete implementation of the PersonMapper interface for CSV-based
+ * data. It takes an array of Strings from a CSV record as input and produces a corresponding Person
+ * object.
+ */
 public class PersonMapperCSV implements PersonMapper {
   public static final int EMPLOYEE_ID_FIELD_INDEX = 0;
   public static final int EMPLOYEE_FIRST_NAME_FIELD_INDEX = 1;

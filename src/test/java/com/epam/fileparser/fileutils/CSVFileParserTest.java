@@ -108,7 +108,8 @@ public class CSVFileParserTest {
   }
 
   @Test
-  public void parseFileShouldThrowIllegalArgumentExceptionWhenDataInvalid() throws URISyntaxException {
+  public void parseFileShouldThrowIllegalArgumentExceptionWhenDataInvalid()
+      throws URISyntaxException {
     // given
     URL res = getClass().getClassLoader().getResource("correct_file.csv");
     String correctFilePath = Paths.get(res.toURI()).toString();
@@ -119,7 +120,8 @@ public class CSVFileParserTest {
   }
 
   @Test
-  public void parseFileShouldThrowIllegalArgumentExceptionWhenMoreThanOneCEO() throws URISyntaxException {
+  public void parseFileShouldThrowIllegalArgumentExceptionWhenMoreThanOneCEO()
+      throws URISyntaxException {
     // given
     URL res = getClass().getClassLoader().getResource("two_CEO.csv");
     String twoCEOPath = Paths.get(res.toURI()).toString();

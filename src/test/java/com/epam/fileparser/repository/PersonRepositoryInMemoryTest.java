@@ -29,7 +29,7 @@ public class PersonRepositoryInMemoryTest {
     // then
     assertTrue(actual);
     assertEquals(1, personRepository.getAllPersons().size());
-    assertEquals(employeeOne, personRepository.getById(1L).get());
+    assertEquals(employeeOne, personRepository.findById(1L).get());
   }
 
   @Test
@@ -42,14 +42,14 @@ public class PersonRepositoryInMemoryTest {
     assertTrue(personRepository.savePerson(employeeOne));
     assertTrue(personRepository.savePerson(employeeTwo));
     assertEquals(2, personRepository.getAllPersons().size());
-    assertEquals(employeeOne, personRepository.getById(1L).get());
-    assertEquals(employeeTwo, personRepository.getById(2L).get());
+    assertEquals(employeeOne, personRepository.findById(1L).get());
+    assertEquals(employeeTwo, personRepository.findById(2L).get());
     boolean actual = personRepository.savePerson(employeeThree);
 
     // then
     assertTrue(actual);
     assertEquals(3, personRepository.getAllPersons().size());
-    assertEquals(employeeThree, personRepository.getById(3L).get());
+    assertEquals(employeeThree, personRepository.findById(3L).get());
   }
 
   @Test
@@ -62,22 +62,22 @@ public class PersonRepositoryInMemoryTest {
     assertTrue(personRepository.savePerson(employeeOne));
     assertTrue(personRepository.savePerson(employeeTwo));
     assertEquals(2, personRepository.getAllPersons().size());
-    assertEquals(employeeOne, personRepository.getById(1L).get());
-    assertEquals(employeeTwo, personRepository.getById(2L).get());
+    assertEquals(employeeOne, personRepository.findById(1L).get());
+    assertEquals(employeeTwo, personRepository.findById(2L).get());
     boolean actual = personRepository.savePerson(employeeThree);
 
     // then
     assertFalse(actual);
     assertEquals(2, personRepository.getAllPersons().size());
-    assertEquals(employeeOne, personRepository.getById(1L).get());
+    assertEquals(employeeOne, personRepository.findById(1L).get());
   }
 
   @Test
-  public void getByIdShouldReturnOptionalWithPersonWhenThereIsPersonWithProvidedId() {
+  public void findByIdShouldReturnOptionalWithPersonWhenThereIsPersonWithProvidedId() {
     // when
     assertTrue(personRepository.savePerson(employeeOne));
     assertEquals(1, personRepository.getAllPersons().size());
-    Optional<Person> actual = personRepository.getById(1L);
+    Optional<Person> actual = personRepository.findById(1L);
 
     // then
     assertTrue(actual.isPresent());
@@ -86,11 +86,11 @@ public class PersonRepositoryInMemoryTest {
   }
 
   @Test
-  public void getByIdShouldReturnEmptyOptionalWhenThereIsNoPersonWithProvidedId() {
+  public void findByIdShouldReturnEmptyOptionalWhenThereIsNoPersonWithProvidedId() {
     // when
     assertTrue(personRepository.savePerson(employeeOne));
     assertEquals(1, personRepository.getAllPersons().size());
-    Optional<Person> actual = personRepository.getById(2L);
+    Optional<Person> actual = personRepository.findById(2L);
 
     // then
     assertTrue(actual.isEmpty());
@@ -106,7 +106,7 @@ public class PersonRepositoryInMemoryTest {
   }
 
   @Test
-  public void getByIdShouldReturnMapWithPersonWhenThereIsAPersonInRepository() {
+  public void findByIdShouldReturnMapWithPersonWhenThereIsAPersonInRepository() {
     // when
     assertTrue(personRepository.savePerson(employeeOne));
     Map<Long, Person> actual = personRepository.getAllPersons();
