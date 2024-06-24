@@ -50,7 +50,7 @@ public class CSVFileParser implements FileParser {
                 + values.size());
       }
       if (values.isEmpty()) {
-        return Collections.EMPTY_MAP;
+        return Collections.emptyMap();
       }
 
       for (int i = FILE_HEADER_COLUMNS_NUMBER; i < values.size(); i++) {

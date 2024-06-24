@@ -21,7 +21,7 @@ public class SalaryStatisticCalculatorImplTest {
   public void calculateAverageDependentsSalaryShouldReturnZeroIfPersonMapIsEmpty() {
     // given
     Person employeeOne = new Employee(1, "First", "Last", new BigDecimal(1), 1L);
-    Map<Long, Person> emptyMap = Collections.EMPTY_MAP;
+    Map<Long, Person> emptyMap = Collections.emptyMap();
 
     // when
     BigDecimal actual =
