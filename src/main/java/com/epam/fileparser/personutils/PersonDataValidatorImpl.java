@@ -4,9 +4,17 @@ import static com.epam.fileparser.personutils.PersonMapperCSV.*;
 
 import java.math.BigDecimal;
 
+/**
+ * PersonDataValidatorImpl is a class that implements the validating functionality defined in the
+ * PersonDataValidator interface. It validates the data against expected data format.
+ */
 public class PersonDataValidatorImpl implements PersonDataValidator {
   private static final int MIN_SIGNS_FOR_NAME_LAST_NAME = 2;
 
+  /**
+   * Implementation of PersonDataValidator interface method with following format: ids should be
+   * numbers > 0, Name and Last Name should be longer than 2 symbols, Salary should be >= 0
+   */
   @Override
   public boolean validatePersonData(String[] personalData) {
     String idData = personalData[EMPLOYEE_ID_FIELD_INDEX];
@@ -41,7 +49,7 @@ public class PersonDataValidatorImpl implements PersonDataValidator {
   }
 
   private boolean validateFirstNameLastName(String name) {
-    if(name == null) {
+    if (name == null) {
       return false;
     }
     return name.length() >= MIN_SIGNS_FOR_NAME_LAST_NAME;

@@ -9,6 +9,11 @@ import com.epam.fileparser.statisticutils.model.SalaryStatisticHolder;
 import java.math.BigDecimal;
 import java.util.Map;
 
+/**
+ * PersonsStatisticCalculatorImpl provides a simple concrete implementation of the
+ * PersonsStatisticCalculator interface. It calculates statistics based on data in the provided
+ * StatisticHolder object.
+ */
 public class PersonsStatisticCalculatorImpl implements PersonsStatisticCalculator {
   private static final int MAX_MANAGERS_CHAIN = 4;
   private final PersonManagerChainCalculator personManagerChainCalculator;
@@ -46,14 +51,14 @@ public class PersonsStatisticCalculatorImpl implements PersonsStatisticCalculato
       ManagerStatisticHolder managerStatisticHolder = new ManagerStatisticHolder();
       managerStatisticHolder.setPerson(person);
       managerStatisticHolder.setByNumber(managersChain - MAX_MANAGERS_CHAIN);
-      statisticHolder.addWrongManager(managerStatisticHolder);
+      statisticHolder.addWrongManagerChainPerson(managerStatisticHolder);
     }
   }
 
   private void calculateSalaryStatistic(
       StatisticHolder statisticHolder, Person person, Map<Long, Person> personsMap) {
     BigDecimal avgSubordinatesSalary =
-        salaryStatisticCalculator.calculateAverageSalary(personsMap, person);
+        salaryStatisticCalculator.calculateAverageDependentsSalary(personsMap, person);
     BigDecimal maxSalary = salaryStatisticCalculator.calculateMaxSalary(avgSubordinatesSalary);
     BigDecimal minSalary = salaryStatisticCalculator.calculateMinSalary(avgSubordinatesSalary);
     if (person.getSalary().compareTo(minSalary) < 0) {

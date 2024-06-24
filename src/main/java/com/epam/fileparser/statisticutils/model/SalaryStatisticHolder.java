@@ -3,6 +3,7 @@ package com.epam.fileparser.statisticutils.model;
 import com.epam.fileparser.model.Person;
 import java.math.BigDecimal;
 
+/** Class to store information about salary difference from average dependent salary */
 public class SalaryStatisticHolder {
   private Person person;
   private BigDecimal bySalary;

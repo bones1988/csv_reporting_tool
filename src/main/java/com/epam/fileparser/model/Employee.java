@@ -3,6 +3,7 @@ package com.epam.fileparser.model;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+/** Class for representing employee */
 public class Employee extends Person {
   private final Long managerId;
 

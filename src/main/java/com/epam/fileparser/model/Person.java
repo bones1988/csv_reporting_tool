@@ -6,6 +6,7 @@ import static com.epam.fileparser.runner.ConsoleRunner.ROUNDING_MODE;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+/** Abstract class for representing abstract user of system */
 public abstract class Person {
   private final long id;
   private final String firstName;

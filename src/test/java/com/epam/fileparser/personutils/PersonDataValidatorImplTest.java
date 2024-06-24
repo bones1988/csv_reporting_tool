@@ -115,9 +115,7 @@ public class PersonDataValidatorImplTest {
   @Test
   public void validatePersonDataShouldReturnFalseWithNullLastNameCEO() {
     // given
-    String[] inValidCEOData = {
-            VALID_ID_DATA, VALID_FIRST_NAME_DATA, null, VALID_SALARY_DATA
-    };
+    String[] inValidCEOData = {VALID_ID_DATA, VALID_FIRST_NAME_DATA, null, VALID_SALARY_DATA};
 
     // when
     boolean actual = personDataValidator.validatePersonData(inValidCEOData);
@@ -130,7 +128,11 @@ public class PersonDataValidatorImplTest {
   public void validatePersonDataShouldReturnFalseWithNullLastNameEmployee() {
     // given
     String[] inValidEmployeeData = {
-            VALID_ID_DATA, VALID_FIRST_NAME_DATA, INVALID_LAST_NAME_DATA, VALID_SALARY_DATA, VALID_MANAGER_ID_DATA
+      VALID_ID_DATA,
+      VALID_FIRST_NAME_DATA,
+      INVALID_LAST_NAME_DATA,
+      VALID_SALARY_DATA,
+      VALID_MANAGER_ID_DATA
     };
 
     // when
@@ -144,7 +146,7 @@ public class PersonDataValidatorImplTest {
   public void validatePersonDataShouldReturnFalseWithSalaryCEO() {
     // given
     String[] inValidCEOData = {
-            VALID_ID_DATA, VALID_FIRST_NAME_DATA, VALID_LAST_NAME_DATA, INVALID_SALARY_DATA
+      VALID_ID_DATA, VALID_FIRST_NAME_DATA, VALID_LAST_NAME_DATA, INVALID_SALARY_DATA
     };
 
     // when
@@ -158,7 +160,11 @@ public class PersonDataValidatorImplTest {
   public void validatePersonDataShouldReturnFalseWithInvalidSalaryEmployee() {
     // given
     String[] inValidEmployeeData = {
-            VALID_ID_DATA, VALID_FIRST_NAME_DATA, VALID_LAST_NAME_DATA, INVALID_SALARY_DATA, VALID_MANAGER_ID_DATA
+      VALID_ID_DATA,
+      VALID_FIRST_NAME_DATA,
+      VALID_LAST_NAME_DATA,
+      INVALID_SALARY_DATA,
+      VALID_MANAGER_ID_DATA
     };
 
     // when
@@ -172,7 +178,11 @@ public class PersonDataValidatorImplTest {
   public void validatePersonDataShouldReturnFalseWithInvalidManagerIdEmployee() {
     // given
     String[] inValidEmployeeData = {
-            VALID_ID_DATA, VALID_FIRST_NAME_DATA, VALID_LAST_NAME_DATA, VALID_SALARY_DATA, INVALID_MANAGER_ID_DATA
+      VALID_ID_DATA,
+      VALID_FIRST_NAME_DATA,
+      VALID_LAST_NAME_DATA,
+      VALID_SALARY_DATA,
+      INVALID_MANAGER_ID_DATA
     };
 
     // when

@@ -13,6 +13,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
+/**
+ * CSVFileParser is a class that implements the parsing functionality defined in the FileParser
+ * interface. It parses CSV files to map representation where key is an id of the Person, and value
+ * is a Person object.
+ */
 public class CSVFileParser implements FileParser {
   private static final String COLUMN_DELIMITER = ",";
   private static final int FILE_HEADER_COLUMNS_NUMBER = 1;
@@ -54,6 +59,7 @@ public class CSVFileParser implements FileParser {
           throw new IllegalArgumentException("Incorrect data for line:" + i);
         }
         Person person = personMapper.createPerson(personalData);
+        // we assume that file should contain only one CEO
         if (person instanceof CEO) {
           if (hasCEO) {
             throw new IllegalArgumentException("File cannot contain more than 1 CEO");
