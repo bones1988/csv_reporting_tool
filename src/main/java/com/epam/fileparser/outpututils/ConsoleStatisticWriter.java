@@ -33,7 +33,7 @@ public class ConsoleStatisticWriter implements StatisticWriter {
   }
 
   private void writeWrongManagersStatistic(List<ManagerStatisticHolder> wrongManagersList) {
-    System.out.println(" employees have a reporting line which is too long:");
+    System.out.println("Employees have a reporting line which is too long:");
 
     wrongManagersList.forEach(s -> System.out.println(s.getPerson() + " By:" + s.getByNumber()));
     System.out.println();
