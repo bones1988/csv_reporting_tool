@@ -7,5 +7,8 @@ public class CEO extends Person {
     super(id, firstName, lastName, salary);
   }
 
-
+  @Override
+  public String toString() {
+    return super.toString();
+  }
 }

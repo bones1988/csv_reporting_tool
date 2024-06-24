@@ -23,14 +23,6 @@ public abstract class Person {
     return id;
   }
 
-  public String getFirstName() {
-    return firstName;
-  }
-
-  public String getLastName() {
-    return lastName;
-  }
-
   public BigDecimal getSalary() {
     return salary;
   }
@@ -53,5 +45,17 @@ public abstract class Person {
   @Override
   public int hashCode() {
     return Objects.hash(id, firstName, lastName, salary);
+  }
+
+  @Override
+  public String toString() {
+    return "Id: "
+        + id
+        + " FirstName: "
+        + firstName
+        + " LastName: "
+        + lastName
+        + " Salary: "
+        + salary;
   }
 }
