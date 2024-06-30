@@ -10,7 +10,7 @@ import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class PersonRepositoryInMemoryTest {
+class PersonRepositoryInMemoryTest {
   private final PersonRepository personRepository = PersonRepositoryInMemory.getInstance();
   private Person employeeOne;
 
@@ -21,7 +21,7 @@ public class PersonRepositoryInMemoryTest {
   }
 
   @Test
-  public void saveEmployeeShouldAddEmployeeToEmptyStorage() {
+  void saveEmployeeShouldAddEmployeeToEmptyStorage() {
     // when
     assertTrue(personRepository.getAllPersons().isEmpty());
     boolean actual = personRepository.savePerson(employeeOne);
@@ -33,7 +33,7 @@ public class PersonRepositoryInMemoryTest {
   }
 
   @Test
-  public void saveEmployeeShouldAddUniqueEmployeeToStorage() {
+  void saveEmployeeShouldAddUniqueEmployeeToStorage() {
     // given
     Person employeeTwo = new Employee(2, "Second", "SecondLast", new BigDecimal(2), 2L);
     Person employeeThree = new Employee(3, "Third", "ThirdLast", new BigDecimal(3), 3L);
@@ -53,7 +53,7 @@ public class PersonRepositoryInMemoryTest {
   }
 
   @Test
-  public void saveEmployeeShouldNotAddEmployeeWithSameIdToStorageAndShouldNotReplacePrevious() {
+  void saveEmployeeShouldNotAddEmployeeWithSameIdToStorageAndShouldNotReplacePrevious() {
     // given
     Person employeeTwo = new Employee(2, "Second", "SecondLast", new BigDecimal(2), 2L);
     Person employeeThree = new Employee(1, "Third", "ThirdLast", new BigDecimal(3), 3L);
@@ -73,7 +73,7 @@ public class PersonRepositoryInMemoryTest {
   }
 
   @Test
-  public void findByIdShouldReturnOptionalWithPersonWhenThereIsPersonWithProvidedId() {
+  void findByIdShouldReturnOptionalWithPersonWhenThereIsPersonWithProvidedId() {
     // when
     assertTrue(personRepository.savePerson(employeeOne));
     assertEquals(1, personRepository.getAllPersons().size());
@@ -86,7 +86,7 @@ public class PersonRepositoryInMemoryTest {
   }
 
   @Test
-  public void findByIdShouldReturnEmptyOptionalWhenThereIsNoPersonWithProvidedId() {
+  void findByIdShouldReturnEmptyOptionalWhenThereIsNoPersonWithProvidedId() {
     // when
     assertTrue(personRepository.savePerson(employeeOne));
     assertEquals(1, personRepository.getAllPersons().size());
@@ -97,7 +97,7 @@ public class PersonRepositoryInMemoryTest {
   }
 
   @Test
-  public void getAllPersonsShouldReturnEmptyMapWhenThereIsNoPersonInRepository() {
+  void getAllPersonsShouldReturnEmptyMapWhenThereIsNoPersonInRepository() {
     // when
     Map<Long, Person> actual = personRepository.getAllPersons();
 
@@ -106,7 +106,7 @@ public class PersonRepositoryInMemoryTest {
   }
 
   @Test
-  public void findByIdShouldReturnMapWithPersonWhenThereIsAPersonInRepository() {
+  void findByIdShouldReturnMapWithPersonWhenThereIsAPersonInRepository() {
     // when
     assertTrue(personRepository.savePerson(employeeOne));
     Map<Long, Person> actual = personRepository.getAllPersons();

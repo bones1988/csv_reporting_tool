@@ -31,7 +31,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.epam.fileparser.runner.ConsoleRunner</mainClass>
+                            <mainClass>com.epam.fileparser.ConsoleRunner</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

@@ -1,19 +1,21 @@
 package com.epam.fileparser.model;
 
-import static com.epam.fileparser.runner.ConsoleRunner.DECIMAL_SCALE;
-import static com.epam.fileparser.runner.ConsoleRunner.ROUNDING_MODE;
+import static com.epam.fileparser.constants.ApplicationConstants.*;
 
+import com.epam.fileparser.message.MessageBuilder;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 /** Abstract class for representing abstract user of system */
 public abstract class Person {
+  public static final String PERSON_TO_STRING_MESSAGE_KEY = "person_string_representation";
+
   private final long id;
   private final String firstName;
   private final String lastName;
   private final BigDecimal salary;
 
-  public Person(long id, String firstName, String lastName, BigDecimal salary) {
+  Person(long id, String firstName, String lastName, BigDecimal salary) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -22,6 +24,14 @@ public abstract class Person {
 
   public long getId() {
     return id;
+  }
+
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public String getLastName() {
+    return lastName;
   }
 
   public BigDecimal getSalary() {
@@ -33,10 +43,9 @@ public abstract class Person {
     if (this == o) {
       return true;
     }
-    if (o == null || getClass() != o.getClass()) {
+    if (!(o instanceof Person person)) {
       return false;
     }
-    Person person = (Person) o;
     return id == person.id
         && Objects.equals(firstName, person.firstName)
         && Objects.equals(lastName, person.lastName)
@@ -48,15 +57,8 @@ public abstract class Person {
     return Objects.hash(id, firstName, lastName, salary);
   }
 
-  @Override
-  public String toString() {
-    return "Id: "
-        + id
-        + " FirstName: "
-        + firstName
-        + " LastName: "
-        + lastName
-        + " Salary: "
-        + salary;
+  public String getStringOutput(MessageBuilder messageBuilder) {
+    return messageBuilder.buildMessage(
+        PERSON_TO_STRING_MESSAGE_KEY, id, firstName, lastName, salary);
   }
 }
